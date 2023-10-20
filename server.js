@@ -8,6 +8,7 @@ const courseRoute = require("./routes").course;
 const passport = require("passport");
 require("./config/passport")(passport);
 const cors = require("cors");
+const port = process.env.PORT || 8080;
 
 // 連結MongoDB
 mongoose
@@ -33,6 +34,6 @@ app.use(
   courseRoute
 );
 
-app.listen(8080, () => {
+app.listen(port, () => {
   console.log("後端伺服器聆聽在port 8080...");
 });
