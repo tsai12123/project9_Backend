@@ -8,6 +8,7 @@ const courseRoute = require("./routes").course;
 const passport = require("passport");
 require("./config/passport")(passport);
 const cors = require("cors");
+const path = require("path");
 const port = process.env.PORT || 8080;
 
 // 連結MongoDB
