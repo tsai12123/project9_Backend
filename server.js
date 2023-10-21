@@ -24,7 +24,7 @@ mongoose
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
-
+app.use(express.static(path.join(__dirname, "client", "build")));
 app.use("/api/user", authRoute);
 // course route應該被jwt保護
 // 如果request header內部沒有jwt，則request就會被視為是unauthorized
@@ -33,6 +33,10 @@ app.use(
   passport.authenticate("jwt", { session: false }),
   courseRoute
 );
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
 
 app.listen(port, () => {
   console.log("後端伺服器聆聽在port 8080...");
