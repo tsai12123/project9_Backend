@@ -37,7 +37,7 @@ app.use(
 );
 
 if (
-  process.env.NODE_ENV === "prodction" ||
+  process.env.NODE_ENV === "production" ||
   process.env.NODE_ENV === "staging"
 ) {
   app.get("*", (req, res) => {
