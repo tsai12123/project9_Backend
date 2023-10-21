@@ -9,8 +9,7 @@ const passport = require("passport");
 require("./config/passport")(passport);
 const cors = require("cors");
 const port = process.env.PORT || 8080;
-// const frontendAppURL =
-//   process.env.FRONTEND_APP_URL || "https://project-9-frontend.onrender.com";
+
 // 連結MongoDB
 mongoose
   .connect(process.env.MONGODB_CONNECTION)
@@ -34,10 +33,6 @@ app.use(
   passport.authenticate("jwt", { session: false }),
   courseRoute
 );
-
-// app.get("*", (req, res) => {
-//   res.redirect(frontendAppURL);
-// });
 
 app.listen(port, () => {
   console.log("後端伺服器聆聽在port 8080...");
